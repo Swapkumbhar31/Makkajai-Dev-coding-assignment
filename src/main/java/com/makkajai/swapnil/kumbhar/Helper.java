@@ -10,9 +10,10 @@ import java.util.Set;
 
 public class Helper {
 
-    private static Set<String> exemptItems = null;
-    static	{
-        exemptItems = new HashSet<String>();
+    private static Set<String> exemptItems;
+
+    static {
+        exemptItems = new HashSet<>();
         exemptItems.add("book");
         exemptItems.add("headache pills");
         exemptItems.add("packet of headache pills");
@@ -22,11 +23,11 @@ public class Helper {
         exemptItems.add("chocolate");
         exemptItems.add("chocolate bar");
         exemptItems.add("pills");
-//		exemptItems.add("");
     }
+
     static public double nearest5Percent(double amount) {
 
-        return new BigDecimal(Math.ceil(amount * 20)/20).setScale(2,RoundingMode.HALF_UP).doubleValue();
+        return BigDecimal.valueOf(Math.ceil(amount * 20) / 20).setScale(2, RoundingMode.HALF_UP).doubleValue();
 
     }
 
@@ -49,8 +50,7 @@ public class Helper {
             while ((str = in.readLine()) != null) {
                 if (ProductParser.matches(str) && !str.isEmpty())
                     sc.put(ProductParser.parser(str), ProductParser.count(str));
-                else
-                if (!str.isEmpty()) System.out.println("unknown line format: " + str);
+                else if (!str.isEmpty()) System.out.println("unknown line format: " + str);
             }
             in.close();
         } catch (IOException e) {

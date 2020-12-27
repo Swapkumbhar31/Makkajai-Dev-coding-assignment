@@ -45,15 +45,16 @@ public class CartProduct implements CartItem {
 
     @Override
     public int hashCode() {
-        return name.hashCode() + new Integer((int) (initPrice * 100));
+        return name.hashCode() + (int) (initPrice * 100);
     }
+
     @Override
     public boolean equals(Object obj) {
 
         if (obj == null) {
             return false;
         } else if (obj instanceof CartItem) {
-            return (((CartItem) obj).hashCode() == this.hashCode());
+            return (obj.hashCode() == this.hashCode());
 
         } else
             return false;

@@ -8,11 +8,11 @@ public abstract class TaxDecorator implements CartItem {
 
     abstract double getRate();
 
-    public TaxDecorator(CartItem item){
+    public TaxDecorator(CartItem item) {
         this.item = item;
     }
 
-    public double getPrice(){
+    public double getPrice() {
         double salesTax = Helper.nearest5Percent(this.item.getInitPrice() * this.getRate());
         return Helper.roundPrice(this.item.getPrice() + salesTax);
     }

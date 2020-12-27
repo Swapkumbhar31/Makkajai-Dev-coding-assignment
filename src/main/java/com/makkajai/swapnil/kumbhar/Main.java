@@ -81,8 +81,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        // Check how many arguments were passed in
-        String filePath = "src/main/resources/cart/input-one.txt";
+        String filePath = "src/main/resources/cart/input-three.txt";
         Helper.getFromFile(filePath);
     }
 }
